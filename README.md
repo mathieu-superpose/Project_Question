@@ -1,5 +1,9 @@
 # Project_Question
 
+<p align="center">
+  <img alt="Project_Question_logo" src="./img/project_question_logo.jpeg"/>
+</p>
+
 ## The app
 
 Game of trivia built with AnimeJS and OpenTrivia API.
