@@ -27,6 +27,20 @@ const rotation = () => {
     });
 }
 
+const askQuestion = (round, data) => {
+    
+}
+
+const loadQuestions = (round=10) => {
+  let quest = `https://opentdb.com/api.php?amount=${count}&category=18&difficulty=medium&type=multiple`;
+  fetch(quest)
+    .then((response) => response.json())
+    .then((data) => askQuestion(round, data))
+    .catch((error) => console.error(`error: ${error}`))
+}
+
+
+// perform
 // title animation
 let lineDrawing = anime({
     targets: '#titlecontainer .lines path',
@@ -38,7 +52,10 @@ let lineDrawing = anime({
     loop: false
 });
 
-// perform
+//flip process
 card.addEventListener('click', function() {
     rotation();
 });
+
+
+// https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
