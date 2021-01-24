@@ -32,10 +32,36 @@ body
 
     height: 100%;
 
-    border-radius: 10px;
+    border-radius: 20px;
 
     width: 100%;
     transform-style: preserve-3d;
+}
+
+.question {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.answer-group 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.answer-left 
+{
+    padding-right: 40px;
+}
+
+.answer-right 
+{
+    padding-left: 40px;
+}
+
+.answer {
+    padding-top: 40px;
 }
 
 .front,
@@ -48,7 +74,7 @@ body
 
     border-radius: 10px;
 
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     backface-visibility: hidden;
 }
