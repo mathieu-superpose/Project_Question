@@ -14,7 +14,6 @@ body
     stroke:red;
     stroke-width:1;
 }
-
 .card-container
 {
     
@@ -25,7 +24,6 @@ body
     perspective: 1400px;
     font-size: 20px;
 }
-
 .card
 {
     position: relative;
@@ -37,33 +35,46 @@ body
     width: 100%;
     transform-style: preserve-3d;
 }
-
 .question {
     padding-left: 40px;
     padding-right: 40px;
 }
-
 .answer-group 
 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-
 .answer-left 
 {
     padding-right: 40px;
 }
-
 .answer-right 
 {
     padding-left: 40px;
 }
-
-.answer {
-    padding-top: 40px;
+.answer 
+{
+    margin-top: 20px;
+    width: 300px;
+    border-radius: 25px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    
+    box-shadow: none;
+    color: none;
 }
-
+.answer:hover {
+  border: none;
+outline:none;
+background: none;
+color: #555;
+box-shadow: inset 8px 8px 8px #cbced1,
+            inset -8px -8px 8px #ffffff; 
+}
 .front,
 .back
 {
@@ -78,13 +89,11 @@ body
     align-items: center;
     backface-visibility: hidden;
 }
-
 .front
 {
     color: #fff;
     background: #7AA0BD;
 }
-
 .back
 {
     position: absolute;
@@ -95,4 +104,12 @@ body
 
     color: #7AA0BD;
     background: #fff;
+}
+.correct 
+{
+    color: green;
+}
+.wrong 
+{
+    color: red;
 }
