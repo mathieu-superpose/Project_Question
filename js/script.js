@@ -55,18 +55,24 @@ const selectAnswer = (answer) => {
         back.innerHTML = front.innerHTML;
         return;
     } 
-    front.innerHTML = `<div class='wrong'><H2>Wrong!</H2></div>
+        front.innerHTML = `<div class='wrong'><H2>Wrong!</H2></div>
                         
                         <button onclick="loadQuestions()">Next</button>
                         `;
-    
+        back.innerHTML = front.innerHTML;
     return;
     }
 
+const annonceScore = (rounds) => {
+    front.innerHTML = `<div><H2><Score: ${score}/${rounds}</H2></div>`;
+    if (score>rounds/2) front.innerHTML += `<div class='correct'><H2>Congratulations!</H2></div>`
+    back.innerHTML = front.innerHTML;
+}
+
 const askQuestion = (rounds, data) => {
+    
     front.innerHTML = '';
     back.innerHTML = '';
-     count++;
     playing = true;
     anime({
         targets: card,
@@ -78,7 +84,8 @@ const askQuestion = (rounds, data) => {
             playing = false;
                 correct = data.results[round].correct_answer;
                 let answers = shuffle([data.results[round].correct_answer, data.results[round].incorrect_answers[0], data.results[round].incorrect_answers[1], data.results[round].incorrect_answers[2]]);
-
+            if (count==rounds)return annonceScore(rounds);
+            count++;
             front.innerHTML = `<div class='question'><H2>${data.results[round].question}</H2></div>
                         <div class='answer-group'>
                         <div class='answer-left'>
