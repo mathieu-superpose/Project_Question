@@ -6,7 +6,7 @@ const back = document.querySelector(".back");
 
 let playing = false;
 let count = 0;
-let rounds = 0;
+let round = 0;
 
 const rotation = () => {
     count++;
@@ -21,24 +21,27 @@ const rotation = () => {
         duration: 400,
         complete: function(anim) {
             playing = false;
-            front.innerHTML = count;
-            back.innerHTML = count;
+            //front.innerHTML = count;
+            //back.innerHTML = count;
         }
     });
 }
 
-const askQuestion = (round, data) => {
-    
+const askQuestion = (rounds, data) => {
+    rotation();
+    front.innerHTML = `<H2>${data.results[round].question}</H2>`;
+    back.innerHTML = front.innerHTML;
+
 }
 
-const loadQuestions = (round=10) => {
-  let quest = `https://opentdb.com/api.php?amount=${count}&category=18&difficulty=medium&type=multiple`;
+const loadQuestions = (rounds=10) => {
+    
+  let quest = `https://opentdb.com/api.php?amount=${rounds}&category=18&difficulty=medium&type=multiple`;
   fetch(quest)
     .then((response) => response.json())
-    .then((data) => askQuestion(round, data))
+    .then((data) => askQuestion(rounds, data))
     .catch((error) => console.error(`error: ${error}`))
 }
-
 
 // perform
 // title animation
@@ -52,10 +55,4 @@ let lineDrawing = anime({
     loop: false
 });
 
-//flip process
-card.addEventListener('click', function() {
-    rotation();
-});
-
-
-// https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
+loadQuestions();
