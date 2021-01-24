@@ -126,8 +126,8 @@ let lineDrawing = anime({
     targets: '#titlecontainer .lines path',
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutSine',
-    duration: 500,
-    delay: function(el, i) { return i * 250 },
+    duration: 150,
+    delay: function(el, i) { return i * 100 },
     direction: 'alternate',
     loop: false
 });
