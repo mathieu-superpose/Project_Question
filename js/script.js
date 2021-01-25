@@ -4,6 +4,7 @@ const card = document.querySelector(".card");
 const front = document.querySelector(".front");
 const back = document.querySelector(".back");
 
+let name = '';
 let correct ='';
 let playing = false;
 let count = 0;
@@ -69,6 +70,25 @@ const annonceScore = (rounds) => {
     back.innerHTML = front.innerHTML;
 }
 
+const askName = () => {
+    front.innerHTML = `<div><p>Fill your name to start a new game<p></div>
+                        <div><input id='myname' type="text" name="name"></div>
+                        <div id='wrong-name'></div>
+                        <button onclick="startGame()">Start</button>
+                        `;
+    back.innerHTML = front.innerHTML;
+        
+}
+
+const startGame = () => {
+    let nameCheck = document.querySelector("#myname")
+    if (/\w*/.test(nameCheck.innerHTML)==false) {
+        document.querySelector("#wrong-name").innerHTML = 'Please fill a proper name'
+    }
+    name = nameCheck.innerHTML;
+    loadQuestions();
+}
+
 const askQuestion = (rounds, data) => {
     
     front.innerHTML = '';
@@ -132,4 +152,6 @@ let lineDrawing = anime({
     loop: false
 });
 
-loadQuestions();
+askName();
+
+
